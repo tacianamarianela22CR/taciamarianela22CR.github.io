@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/academic.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="site-brand" href="{{ site.baseurl }}/">Taciana M. Casanova</a>
+      
+      <button class="nav-toggle" aria-label="Abrir menú" onclick="document.querySelector('.site-nav').classList.toggle('open')">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/" class="{% if page.url == '/' %}active{% endif %}">Inicio</a>
+        <a href="{{ site.baseurl }}/research.html" class="{% if page.url contains 'research' %}active{% endif %}">Investigación</a>
+        <a href="{{ site.baseurl }}/initiatives.html" class="{% if page.url contains 'initiatives' %}active{% endif %}">Iniciativas</a>
+        <a href="{{ site.baseurl }}/blog.html" class="{% if page.url contains 'blog' %}active{% endif %}">Notas & Finanzas</a>
+        <a href="{{ site.baseurl }}/cv.html" class="{% if page.url contains 'cv' %}active{% endif %}">CV</a>
+        <button id="btn-lang-toggle" type="button" class="lang-btn notranslate" onclick="toggleLanguage()">🌐 EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-wrapper">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-name">{{ site.title }}</p>
+        <p class="footer-sub">Economía · Finanzas Cuantitativas · Supervisión y Riesgos</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:{{ site.author.email }}" title="Correo"><i class="fa-solid fa-envelope"></i></a>
+        <a href="{{ site.author.linkedin }}" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="{{ site.author.github }}" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Motor de traducción automática ES / EN -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <style>
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+    body { top: 0px !important; }
+    .skiptranslate iframe { visibility: hidden !important; height: 0 !important; }
+    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+  </style>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'en,es', autoDisplay: false }, 'google_translate_element');
+    }
+    function toggleLanguage() {
+      var btn = document.getElementById('btn-lang-toggle');
+      var isEnglish = document.cookie.indexOf('googtrans=/es/en') !== -1;
+      document.cookie = "googtrans=" + (!isEnglish ? "/es/en" : "/es/es") + "; path=/";
+      document.cookie = "googtrans=" + (!isEnglish ? "/es/en" : "/es/es") + "; path=/; domain=" + window.location.hostname;
+      window.location.reload();
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      var btn = document.getElementById('btn-lang-toggle');
+      if (btn && document.cookie.indexOf('googtrans=/es/en') !== -1) btn.innerText = "🌐 ES";
+    });
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
