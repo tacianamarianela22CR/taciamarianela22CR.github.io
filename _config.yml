@@ -1,0 +1,17 @@
+title: "Taciana Marianela Casanova Ramírez"
+name: "Taciana M. Casanova"
+description: "Economista | Finanzas Cuantitativas, Riesgos y Regulación Financiera"
+url: "https://taciamarianela22cr.github.io"
+baseurl: ""
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title.html
+
+author:
+  name: "Taciana Marianela Casanova Ramírez"
+  email: "tcasanovar21_1@unc.edu.pe"
+  location: "Lima / Cajamarca, Perú"
+  github: "https://github.com/taciamarianela22CR"
+  linkedin: "https://www.linkedin.com/" # <-- Pega aquí tu URL exacta de LinkedIn
+
+plugins:
+  - jekyll-seo-tag
